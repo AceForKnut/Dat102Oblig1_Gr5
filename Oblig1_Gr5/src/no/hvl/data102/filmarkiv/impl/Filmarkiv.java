@@ -1,5 +1,7 @@
 package no.hvl.data102.filmarkiv.impl;
 
+import java.util.Arrays;
+
 import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 
 public class Filmarkiv implements FilmarkivADT {
@@ -12,7 +14,7 @@ public class Filmarkiv implements FilmarkivADT {
         this.antall = 0;
     }
 
-}
+
     @Override
     public Film finnFilm(int nr) {
         for (int i = 0; i < antall; i++){
@@ -36,7 +38,7 @@ public class Filmarkiv implements FilmarkivADT {
         
     }
     private void utvidArkiv() {
-        Film[] nyFilmer = new Film[filmer.length * 2]; 
+        Film[] nyFilmer = new Film[filmer.length * 2]; //2x lengden av arkivet
         for (int i = 0; i < filmer.length; i++) {
             nyFilmer[i] = filmer[i]; 
         }
@@ -70,27 +72,60 @@ public boolean slettFilm(int filmnr) {
     @Override
     public Film[] soekTittel(String delstreng) {
 
+        Film[] matchFilm = new Film[antall]; //Lager et nytt arkiv med filmer som matcher delstrengen
+        int index = 0;
+
+        for (int i = 0; i < antall; i++){
+            if(filmer[i].getTittel().toLowerCase().contains(delstreng.toLowerCase())){
+                matchFilm[index++] = filmer[i];
+            }
+        }
+        return trimArkiv(matchFilm, index);
+
+    }
+    //Hjelpe metode for å trimme arkivet ned til bare lengden av matchet søk
+    public Film[] trimArkiv(Film[] arr, int lengde){
+        return Arrays.copyOf(arr, lengde);
     }
 
 
     @Override
     public Film[] soekProdusent(String delstreng) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'soekProdusent'");
+        Film[] matchProdusent = new Film[antall]; //Lager et nytt arkiv med filmer som matcher delstrengen
+        int index = 0;
+
+        for (int i = 0; i < antall; i++){
+            if(filmer[i].getProdusent().toLowerCase().contains(delstreng.toLowerCase())){
+                matchProdusent[index++] = filmer[i];
+            }
+        }
+        return trimArkiv(matchProdusent, index);
+
     }
 
 
     @Override
     public int antall(Sjanger sjanger) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'antall'");
+        int antallSjanger = 0;
+
+        for(int i = 0; i < antall; i++){
+            if(filmer[i].getSjanger() == sjanger){
+                antallSjanger++;
+            }
+        } return antallSjanger;
     }
 
 
+    //Denne metoden tar hensyn til tilfeller der for eksempel posisjon 2 er null
     @Override
     public int antall() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'antall'");
+       int antallFilmer = 0;
+
+       for(int i = 0; i < filmer.length; i++){
+        if(filmer[i] != null){
+            antallFilmer++;
+        }
+       } return antallFilmer;
     }
 
 
