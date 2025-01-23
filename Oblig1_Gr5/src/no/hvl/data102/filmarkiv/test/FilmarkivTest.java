@@ -1,9 +1,13 @@
 package no.hvl.data102.filmarkiv.test;
 import static org.junit.jupiter.api.Assertions.*;
     
+import no.hvl.data102.filmarkiv.impl.Film;
+import no.hvl.data102.filmarkiv.impl.Filmarkiv;
+import no.hvl.data102.filmarkiv.impl.Sjanger;
+
     import org.junit.jupiter.api.BeforeEach;
     import org.junit.jupiter.api.Test;
-    
+
 public class FilmarkivTest {
     
     public class FilmarkivTest {
@@ -72,8 +76,3 @@ public class FilmarkivTest {
     }
     
 }
-
-
-import no.hvl.data102.filmarkiv.impl.Film;
-import no.hvl.data102.filmarkiv.impl.Filmarkiv;
-import no.hvl.data102.filmarkiv.impl.Sjanger;
