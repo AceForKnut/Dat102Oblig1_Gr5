@@ -44,6 +44,7 @@ public class Filmarkiv implements FilmarkivADT {
     }
 
 
+    //Denne løsningen tar ikke hensyn til at den siste posisjonen KAN være null (en film er ikke der fra før av)
     @Override
 public boolean slettFilm(int filmnr) {
     for (int i = 0; i < antall; i++) {
