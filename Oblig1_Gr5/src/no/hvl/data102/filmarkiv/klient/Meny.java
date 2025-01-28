@@ -34,40 +34,40 @@ public class Meny {
     private void visMeny() {
         // Lag vinduet
         JFrame frame = new JFrame("Filmarkiv Meny");
-        frame.setSize(1000, 600);
+        frame.setSize(1000, 1000);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
 
         // Felt for input
         JLabel idLabel = new JLabel("Film ID:");
-        idLabel.setBounds(50, 30, 100, 20); // Posisjon x, y, bredde, høyde
+        idLabel.setBounds(50, 300, 100, 20); // Posisjon x, y, bredde, høyde
 
         JTextField idField = new JTextField();
-        idField.setBounds(150, 30, 200, 20);
+        idField.setBounds(200, 300, 200, 20);
 
         JLabel tittelLabel = new JLabel("Tittel:");
-        tittelLabel.setBounds(50, 60, 100, 20);
+        tittelLabel.setBounds(50, 330, 100, 20);
         JTextField tittelField = new JTextField();
-        tittelField.setBounds(150, 60, 200, 20);
+        tittelField.setBounds(200, 330, 200, 20);
 
         JLabel aarLabel = new JLabel("År:");
-        aarLabel.setBounds(50, 90, 100, 20);
+        aarLabel.setBounds(50, 360, 100, 20);
         JTextField aarField = new JTextField();
-        aarField.setBounds(150, 90, 200, 20);
+        aarField.setBounds(200, 360, 200, 20);
 
         JLabel sjangerLabelNew = new JLabel("Sjanger:");
-        sjangerLabelNew.setBounds(50, 120, 100, 20);
+        sjangerLabelNew.setBounds(50, 390, 100, 20);
         JComboBox<Sjanger> sjangerComboNew = new JComboBox<>(Sjanger.values());
-        sjangerComboNew.setBounds(150, 120, 200, 20);
+        sjangerComboNew.setBounds(200, 390, 200, 20);
 
         JLabel companyLabel = new JLabel("Produksjonsselskap:");
-        companyLabel.setBounds(50, 150, 150, 20);
+        companyLabel.setBounds(50, 420, 150, 20);
         JTextField companyField = new JTextField();
-        companyField.setBounds(200, 150, 200, 20);
+        companyField.setBounds(200, 420, 200, 20);
 
         // Legg til knapp for å legge til film
         JButton addButton = new JButton("Legg til Film");
-        addButton.setBounds(150, 200, 150, 30);
+        addButton.setBounds(150, 450, 150, 30);
         addButton.addActionListener(new ActionListener() { //adder en knapp som kjører når klikket
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -184,7 +184,7 @@ public class Meny {
 
         // Avslutt-knapp
         JButton exitButton = new JButton("Avslutt");
-        exitButton.setBounds(50, 230, 100, 30);
+        exitButton.setBounds(100, 500, 100, 30);
         exitButton.addActionListener(e -> System.exit(0));
 
         // Legg til komponenter i vinduet
@@ -202,6 +202,18 @@ public class Meny {
         frame.add(sjangerCombo);
         frame.add(countGenreButton);
         frame.add(exitButton);
+        frame.add(idLabel);
+        frame.add(idField);
+        frame.add(tittelLabel);
+        frame.add(tittelField);
+        frame.add(aarLabel);
+        frame.add(aarField);
+        frame.add(sjangerLabelNew);
+        frame.add(sjangerComboNew);
+        frame.add(companyLabel);
+        frame.add(companyField);
+        frame.add(addButton);
+
 
         // Vis vinduet
         frame.setVisible(true);

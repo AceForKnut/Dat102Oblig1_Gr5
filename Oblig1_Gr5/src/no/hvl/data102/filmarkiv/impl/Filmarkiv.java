@@ -109,7 +109,7 @@ public boolean slettFilm(int filmnr) {
         int antallSjanger = 0;
 
         for(int i = 0; i < antall; i++){
-            if(filmer[i].getSjanger() == sjanger){
+            if(filmer[i].getSjanger() == sjanger && filmer[i].getSjanger() != null){
                 antallSjanger++;
             }
         } return antallSjanger;
