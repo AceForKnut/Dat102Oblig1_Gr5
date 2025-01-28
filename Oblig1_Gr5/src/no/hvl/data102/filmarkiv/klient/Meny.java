@@ -55,19 +55,24 @@ public class Meny {
         JTextField aarField = new JTextField();
         aarField.setBounds(200, 360, 200, 20);
 
+        JLabel produsLabel = new JLabel("Produsent:");
+        produsLabel.setBounds(50, 390, 100, 20);
+        JTextField produsField = new JTextField();
+        produsField.setBounds(200, 390, 200, 20);
+
         JLabel sjangerLabelNew = new JLabel("Sjanger:");
-        sjangerLabelNew.setBounds(50, 390, 100, 20);
+        sjangerLabelNew.setBounds(50, 420, 100, 20);
         JComboBox<Sjanger> sjangerComboNew = new JComboBox<>(Sjanger.values());
-        sjangerComboNew.setBounds(200, 390, 200, 20);
+        sjangerComboNew.setBounds(200, 420, 200, 20);
 
         JLabel companyLabel = new JLabel("Produksjonsselskap:");
-        companyLabel.setBounds(50, 420, 150, 20);
+        companyLabel.setBounds(50, 450, 150, 20);
         JTextField companyField = new JTextField();
-        companyField.setBounds(200, 420, 200, 20);
+        companyField.setBounds(200, 450, 200, 20);
 
         // Legg til knapp for å legge til film
         JButton addButton = new JButton("Legg til Film");
-        addButton.setBounds(150, 450, 150, 30);
+        addButton.setBounds(150, 480, 150, 30);
         addButton.addActionListener(new ActionListener() { //adder en knapp som kjører når klikket
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -77,9 +82,10 @@ public class Meny {
                     int aar = Integer.parseInt(aarField.getText());
                     Sjanger sjanger = (Sjanger) sjangerComboNew.getSelectedItem();
                     String company = companyField.getText();
+                    String produs = produsField.getText();
 
                     // Legg til film i arkivet
-                    filmarkiv.leggTilFilm(new Film(id, "Ukjent", tittel, aar, sjanger, company));
+                    filmarkiv.leggTilFilm(new Film(id, produs, tittel, aar, sjanger, company));
 
                     JOptionPane.showMessageDialog(frame, "Film lagt til!", "Suksess", JOptionPane.INFORMATION_MESSAGE);
 
@@ -184,7 +190,7 @@ public class Meny {
 
         // Avslutt-knapp
         JButton exitButton = new JButton("Avslutt");
-        exitButton.setBounds(100, 500, 100, 30);
+        exitButton.setBounds(150, 530, 100, 30);
         exitButton.addActionListener(e -> System.exit(0));
 
         // Legg til komponenter i vinduet
@@ -213,6 +219,8 @@ public class Meny {
         frame.add(companyLabel);
         frame.add(companyField);
         frame.add(addButton);
+        frame.add(produsField);
+        frame.add(produsLabel);
 
 
         // Vis vinduet

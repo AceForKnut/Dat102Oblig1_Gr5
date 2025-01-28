@@ -95,5 +95,14 @@ public class Film {
         return Objects.hash(filmNr);
     }
 
+    @Override
+public String toString() {
+    return "Film ID: " + filmNr +
+           ", Tittel: " + tittel +
+           ", År: " + aar +
+           ", Sjanger: " + sjanger +
+           ", Produsent: " + produsent;
+}
+
 }
     

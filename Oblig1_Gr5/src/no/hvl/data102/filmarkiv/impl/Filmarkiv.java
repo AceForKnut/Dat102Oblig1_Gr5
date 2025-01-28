@@ -103,6 +103,8 @@ public boolean slettFilm(int filmnr) {
 
     }
 
+    
+
 
     @Override
     public int antall(Sjanger sjanger) {
