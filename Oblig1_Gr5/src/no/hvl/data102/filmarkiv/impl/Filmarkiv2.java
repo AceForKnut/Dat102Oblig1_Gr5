@@ -82,16 +82,37 @@ public class Filmarkiv2 implements FilmarkivADT {
 
     @Override
     public Film[] soekProdusent(String delstreng) {
-        return new Film[0];
+        Film[] matchProdus = new Film[antall]; //Lager et nytt arkiv med filmer som matcher delstrengen
+        LinearNode<Film> aktuell = start;
+        int index = 0;
+
+        while (aktuell != null) {
+            if (delstreng.contains(aktuell.data.getProdusent())) {
+                matchProdus[index++] = aktuell.data;
+            }
+        }
+          
+
+        return trimArkiv(matchProdus, index);
     }
 
     @Override
     public int antall(Sjanger sjanger) {
-        return 0;
+        LinearNode<Film> aktuell = start;
+        int index = 0;
+        while (aktuell != null) {
+            if(sjanger.equals(aktuell.data.getSjanger())){
+                index++;
+            }
+        } return index;
     }
 
     @Override
     public int antall() {
-        return 0;
+        LinearNode<Film> aktuell = start;
+        int index = 0;
+        while (aktuell != null) {
+                index++;
+        } return index;
     }
 }
